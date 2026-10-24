@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07110c">
+<meta name="description" content="GBX STUDIO - Minecraft, Roblox, BedWars, SkyWars and more gaming content.">
+<title>GBX STUDIO | Gaming & Content</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+:root {
+  --accent: #28f58b;
+  --accent-rgb: 40,245,139;
+  --bg: #070b0f;
+  --panel: #0d141a;
+  --panel2: #111c23;
+  --text: #f4f7f8;
+  --muted: #9aaab4;
+  --border: #22323b;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: Inter, sans-serif; line-height: 1.6;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse at 15% 0%, rgba(var(--accent-rgb),.09), transparent 40%);
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.container { width: min(1120px, 92%); margin: auto; }
+.logo, h1, h2, h3 { font-family: Orbitron, sans-serif; }
+.logo { font-size: 1.25rem; font-weight: 900; letter-spacing: -1px; }
+.logo span, .accent { color: var(--accent); }
+header {
+  position: sticky; top: 0; z-index: 20; background: rgba(7,11,15,.92);
+  border-bottom: 1px solid var(--border); backdrop-filter: blur(16px);
+}
+.nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.navlinks { display: flex; align-items: center; gap: 23px; }
+.navlinks a { color: var(--muted); font-size: .88rem; }
+.navlinks a:hover, .navlinks a.active { color: var(--accent); }
+.navright { display: flex; align-items: center; gap: 10px; }
+.iconbtn {
+  width: 42px; height: 42px; border: 1px solid var(--border);
+  border-radius: 12px; background: var(--panel); color: var(--text); font-size: 1.1rem;
+}
+.iconbtn:hover { border-color: var(--accent); }
+.menu-btn { display: none; }
+.hero { padding: 85px 0 76px; overflow: hidden; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 45px; align-items: center; }
+.eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 4px; font-size: .75rem; font-weight: 800; }
+h1 { font-size: clamp(2.5rem, 7vw, 5.3rem); line-height: 1.05; letter-spacing: -3px; margin: 16px 0; }
+.hero p { color: var(--muted); max-width: 520px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 13px 19px; border-radius: 11px; font-weight: 800; font-size: .9rem;
+  border: 1px solid var(--border); transition: .2s;
+}
+.btn-primary { background: var(--accent); color: #06110a; border-color: var(--accent); }
+.btn-secondary { background: var(--panel); }
+.btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.hero-art {
+  min-height: 300px; border: 1px solid rgba(var(--accent-rgb),.3);
+  border-radius: 24px; background:
+  radial-gradient(circle at 50% 45%, rgba(var(--accent-rgb),.2), transparent 55%),
+  linear-gradient(135deg, #12221a, #0a1117 70%);
+  display: grid; place-items: center; position: relative; overflow: hidden;
+}
+.hero-art::before, .hero-art::after {
+  content: ""; position: absolute; width: 220px; height: 220px;
+  border: 1px solid rgba(var(--accent-rgb),.25); transform: rotate(45deg);
+}
+.hero-art::after { width: 155px; height: 155px; }
+.hero-symbol { font-size: 7rem; font-weight: 900; color: var(--accent); font-family: Orbitron,sans-serif; text-shadow: 0 0 40px rgba(var(--accent-rgb),.35); z-index: 1; }
+.hero-tag { position: absolute; bottom: 17px; right: 18px; color: var(--muted); font-size: .75rem; letter-spacing: 2px; }
+section { padding: 64px 0; border-top: 1px solid rgba(255,255,255,.04); }
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 27px; }
+.section-head h2 { font-size: clamp(1.4rem,3vw,2rem); margin: 0; }
+.section-head p { color: var(--muted); margin: 5px 0 0; font-size: .9rem; }
+.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 17px; }
+.card {
+  border: 1px solid var(--border); background: linear-gradient(145deg,var(--panel2),var(--panel));
+  border-radius: 16px; padding: 22px; transition: .22s; min-width: 0;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(var(--accent-rgb),.6); }
+.card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.card h3 { font-size: 1rem; margin: 0 0 7px; }
+.card p { color: var(--muted); font-size: .87rem; margin: 0 0 15px; }
+.card-link { color: var(--accent); font-size: .85rem; font-weight: 800; }
+.tag { display: inline-block; color: var(--accent); border: 1px solid rgba(var(--accent-rgb),.3); border-radius: 20px; padding: 4px 9px; font-size: .7rem; margin-bottom: 12px; }
+.video-card { padding: 0; overflow: hidden; }
+.video-cover { min-height: 145px; display: grid; place-items: center; background: radial-gradient(circle,rgba(var(--accent-rgb),.17),transparent 60%),linear-gradient(135deg,#182a23,#101821); border-bottom: 1px solid var(--border); }
+.play { width: 49px; height: 49px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #06110a; font-size: 1.15rem; }
+.video-info { padding: 19px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+.about-box { border: 1px solid var(--border); border-radius: 17px; padding: 26px; background: var(--panel); }
+.about-box p, .about-box li { color: var(--muted); font-size: .9rem; }
+.about-box ul { padding-left: 20px; }
+.socials { display: flex; flex-wrap: wrap; gap: 12px; }
+.social-link { flex: 1 1 135px; border: 1px solid var(--border); border-radius: 13px; padding: 16px; background: var(--panel); font-weight: 700; }
+.social-link:hover { border-color: var(--accent); color: var(--accent); }
+.social-link small { display: block; color: var(--muted); font-weight: 400; margin-top: 4px; }
+footer { border-top: 1px solid var(--border); padding: 25px 0; color: var(--muted); font-size: .8rem; }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 15px; }
+.footer-links a:hover { color: var(--accent); }
+.overlay {
+  position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.65);
+  opacity: 0; visibility: hidden; transition: .2s;
+}
+.overlay.show { opacity: 1; visibility: visible; }
+.settings {
+  position: fixed; z-index: 41; top: 0; right: 0; height: 100dvh;
+  width: min(390px,92vw); padding: 25px; overflow-y: auto;
+  background: var(--panel); border-left: 1px solid var(--border);
+  transform: translateX(105%); transition: transform .25s;
+}
+.settings.show { transform: translateX(0); }
+.settings-head { display: flex; justify-content: space-between; align-items: center; }
+.settings-head h2 { font-size: 1.25rem; }
+.settings p { color: var(--muted); font-size: .88rem; }
+.theme-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; margin: 17px 0 25px; }
+.theme-choice {
+  border: 1px solid var(--border); border-radius: 12px; background: var(--bg);
+  color: var(--text); padding: 14px 5px; font-size: .8rem;
+}
+.theme-choice .dot { display: block; width: 23px; height: 23px; margin: 0 auto 9px; border-radius: 50%; }
+.theme-choice[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.theme-choice .dot.green { background: #28f58b; }
+.theme-choice .dot.orange { background: #ff9a3d; }
+.theme-choice .dot.purple { background: #b66bff; }
+.setting-link { display: block; padding: 10px 0; color: var(--muted); }
+.setting-link:hover { color: var(--accent); }
+.toast {
+  position: fixed; bottom: 20px; left: 50%; z-index: 60; transform: translate(-50%,20px);
+  opacity: 0; pointer-events: none; background: var(--panel2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px; padding: 11px 16px; transition: .2s;
+}
+.toast.show { opacity: 1; transform: translate(-50%,0); }
+@media(max-width:760px) {
+  .nav { min-height: 64px; }
+  .menu-btn { display: inline-grid; place-items: center; }
+  .navlinks {
+    display: none; position: absolute; top: 64px; left: 0; right: 0;
+    padding: 18px 5%; background: var(--panel); border-bottom: 1px solid var(--border);
+    flex-direction: column; align-items: stretch; gap: 0;
+  }
+  .navlinks.open { display: flex; }
+  .navlinks a { padding: 12px 0; }
+  .hero { padding: 55px 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  .hero-art { min-height: 210px; }
+  .hero-symbol { font-size: 5rem; }
+  .grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  section { padding: 48px 0; }
+  .section-head { align-items: start; flex-direction: column; }
+}
+@media(min-width:520px) and (max-width:760px) {
+  .grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">GBX <span>STUDIO</span></a>
+
+    <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#videos">Videos</a>
+      <a href="#games">Games</a>
+      <a href="#socials">Socials</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="navright">
+      <button class="iconbtn" id="settingsOpen" aria-label="Open settings" title="Settings">⚙</button>
+      <button class="iconbtn menu-btn" id="menuOpen" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home" style="border-top:0">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Welcome to the next level</div>
+        <h1>GBX<br><span class="accent">STUDIO</span></h1>
+        <p><strong>Gaming. Videos. Community.</strong></p>
+        <p>Minecraft, Roblox, BedWars, SkyWars, LifeSteal and more. Join the journey and be part of GBX STUDIO.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#videos">▶ Watch Videos</a>
+          <a class="btn btn-secondary" href="#games">🎮 Explore Games</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="GBX Studio gaming graphic">
+        <div class="hero-symbol">GBX</div>
+        <div class="hero-tag">PLAY • CREATE • REPEAT</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="games">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Our <span class="accent">Games</span></h2>
+          <p>Explore the games featured on the channel.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">⛏️</div>
+          <span class="tag">MAIN GAME</span>
+          <h3>Minecraft</h3>
+          <p>Survival, challenges, servers, and unforgettable moments.</p>
+          <a class="card-link" href="#videos">Explore videos →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">🟥</div>
+          <span class="tag">GAMING</span>
+          <h3>Roblox</h3>
+          <p>Funny gameplay, different experiences, and challenges.</p>
+          <a class="card-link" href="#videos">Explore videos →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">🛏️</div>
+          <span class="tag">PVP</span>
+          <h3>BedWars</h3>
+          <p>Clutch plays, strategies, and survival challenges.</p>
+          <a class="card-link" href="#videos">Explore videos →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">☁️</div>
+          <span class="tag">PVP</span>
+          <h3>SkyWars</h3>
+          <p>Island battles, smart plays, and intense fights.</p>
+          <a class="card-link" href="#videos">Explore videos →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">❤️‍🔥</div>
+          <span class="tag">SURVIVAL</span>
+          <h3>LifeSteal</h3>
+          <p>Survival, alliances, rivalries, and server adventures.</p>
+          <a class="card-link" href="#videos">Explore videos →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">＋</div>
+          <span class="tag">COMING SOON</span>
+          <h3>More Games</h3>
+          <p>More games and new content will be added soon.</p>
+          <a class="card-link" href="#socials">Stay connected →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Latest <span class="accent">Videos</span></h2>
+          <p>Watch the latest uploads on YouTube.</p>
+        </div>
+        <a class="btn btn-secondary" href="https://www.youtube.com/@ItsGoobix" target="_blank" rel="noopener noreferrer">Visit YouTube ↗</a>
+      </div>
+
+      <div class="grid">
+        <article class="card video-card">
+          <div class="video-cover"><span class="play">▶</span></div>
+          <div class="video-info">
+            <span class="tag">MINECRAFT</span>
+            <h3>Latest Minecraft videos</h3>
+            <p>Check out the newest uploads and adventures.</p>
+            <a class="card-link" href="https://www.youtube.com/@ItsGoobix" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="card video-card">
+          <div class="video-cover"><span class="play">▶</span></div>
+          <div class="video-info">
+            <span class="tag">CHALLENGES</span>
+            <h3>Challenges and gameplay</h3>
+            <p>Funny moments, challenges, and gaming content.</p>
+            <a class="card-link" href="https://www.youtube.com/@ItsGoobix" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="card video-card">
+          <div class="video-cover"><span class="play">▶</span></div>
+          <div class="video-info">
+            <span class="tag">MORE CONTENT</span>
+            <h3>New videos soon</h3>
+            <p>Follow the channel so you don't miss new uploads.</p>
+            <a class="card-link" href="https://www.youtube.com/@ItsGoobix" target="_blank" rel="noopener noreferrer">Subscribe on YouTube ↗</a>
+          </div>
+        </article>
+      </div>
+      <p style="color:var(--muted);font-size:.8rem;margin-top:16px">These are channel links, not individual video embeds. Add specific video URLs when you want thumbnails to open particular uploads.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-box">
+        <span class="eyebrow">Who we are</span>
+        <h2>About GBX <span class="accent">STUDIO</span></h2>
+        <p>GBX STUDIO is a gaming and content creation brand focused on Minecraft, Roblox, and more. The goal is to create entertaining videos, take on challenges, and build a community around gaming.</p>
+        <ul>
+          <li>Gaming content and challenges</li>
+          <li>Minecraft and Roblox adventures</li>
+          <li>New games and videos coming soon</li>
+        </ul>
+      </div>
+      <div class="about-box">
+        <span class="eyebrow">Join the journey</span>
+        <h2>Be part of the <span class="accent">community.</span></h2>
+        <p>Follow GBX STUDIO on YouTube and TikTok to keep up with new videos and updates.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://www.youtube.com/@ItsGoobix" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+          <a class="btn btn-secondary" href="https://www.tiktok.com/@nylqfx" target="_blank" rel="noopener noreferrer">♪ TikTok</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="socials">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Find us <span class="accent">online</span></h2>
+          <p>Follow, watch, and join the community.</p>
+        </div>
+      </div>
+      <div class="socials">
+        <a class="social-link" href="https://www.youtube.com/@ItsGoobix" target="_blank" rel="noopener noreferrer">▶ YouTube<small>@ItsGoobix</small></a>
+        <a class="social-link" href="https://www.tiktok.com/@nylqfx" target="_blank" rel="noopener noreferrer">♪ TikTok<small>@nylqfx</small></a>
+        <a class="social-link" href="https://discord.gg/5xcePzfJn" target="_blank" rel="noopener noreferrer">◉ Discord<small>Join the server</small></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="logo" href="#home">GBX <span>STUDIO</span></a>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#videos">Videos</a>
+      <a href="#games">Games</a>
+      <a href="#socials">Socials</a>
+      <a href="#about">About</a>
+    </div>
+    <span>© <span id="year"></span> GBX STUDIO</span>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="settings" id="settingsPanel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" aria-hidden="true">
+  <div class="settings-head">
+    <h2 id="settingsTitle">⚙ Settings</h2>
+    <button class="iconbtn" id="settingsClose" aria-label="Close settings">✕</button>
+  </div>
+  <p>Customize your GBX STUDIO experience.</p>
+  <h3>Choose your theme</h3>
+  <div class="theme-options">
+    <button class="theme-choice" data-theme="green" aria-pressed="true"><span class="dot green"></span>Green</button>
+    <button class="theme-choice" data-theme="orange" aria-pressed="false"><span class="dot orange"></span>Orange</button>
+    <button class="theme-choice" data-theme="purple" aria-pressed="false"><span class="dot purple"></span>Purple</button>
+  </div>
+  <hr style="border:0;border-top:1px solid var(--border)">
+  <h3>Quick links</h3>
+  <a class="setting-link" href="#home">⌂ Home</a>
+  <a class="setting-link" href="#videos">▷ Videos</a>
+  <a class="setting-link" href="#games">🎮 Games</a>
+  <a class="setting-link" href="#socials">↗ Socials</a>
+  <a class="setting-link" href="#about">ⓘ About</a>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const panel = document.getElementById('settingsPanel');
+  const overlay = document.getElementById('overlay');
+  const toast = document.getElementById('toast');
+  const menu = document.getElementById('navlinks');
+  const menuButton = document.getElementById('menuOpen');
+  let toastTimer;
+
+  const themes = {
+    green:  { accent: '#28f58b', rgb: '40,245,139' },
+    orange: { accent: '#ff9a3d', rgb: '255,154,61' },
+    purple: { accent: '#b66bff', rgb: '182,107,255' }
+  };
+
+  function notify(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+  function setTheme(name) {
+    const theme = themes[name] || themes.green;
+    root.style.setProperty('--accent', theme.accent);
+    root.style.setProperty('--accent-rgb', theme.rgb);
+
+    document.querySelectorAll('.theme-choice').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.theme === name));
+    });
+
+    try { localStorage.setItem('gbx-theme', name); } catch (error) {}
+    notify(name.charAt(0).toUpperCase() + name.slice(1) + ' theme applied');
+  }
+
+  try {
+    const savedTheme = localStorage.getItem('gbx-theme');
+    if (savedTheme && themes[savedTheme]) {
+      const theme = themes[savedTheme];
+      root.style.setProperty('--accent'
